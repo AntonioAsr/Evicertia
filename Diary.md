@@ -9,12 +9,13 @@ Se utilizará como guía durante el desarrollo y se irán añadiendo o eliminand
 - [x] Acceso a figma
 - [x] Servidor / API REST: "Up and Running"
 - [] Test Restful API
+- [] Import all assets
 - [] Modal choose player
 - [] Borde alrededor de la tarjeta del personaje seleccionado.
 - [] Para continuar deberás pulsar el botón “Save changes”.
 - [] Tarjeta del personaje (card-character). Aparecerá al hacer clic encima del personaje en el tablero y te indicará el nombre y los movimientos que ha hecho.
 - [] Mobile friendly (Puede disminuir el tamaño del mapa acorde al de la pantalla)
-
+- [] Revisión del diario antes de entrega
 
 
 ### Preguntas Evicertia
@@ -36,3 +37,10 @@ Lo de forzar que tenga que poner el móvil en horizontal en el móvil también m
 He optado por [Vite](https://vitejs.dev/) como herramienta para el scaffold ya que es algo mas rápido que [CRA](https://create-react-app.dev/)
 
 Para interactuar con la API rest he optado por usar [Redux Toolkit](https://redux-toolkit.js.org) ya ofrece [RTK](https://redux-toolkit.js.org/rtk-query/overview) query ya que elemina la necesidad de escribir mucha lógica para obtener datos y manager la cache.
+
+
+### Notas Personales
+
+Las imágenes de los jugadores son las mismas para desktop como para móvil, no es necesario crear diferentes assets para diferentes tamaños de pantalla.
+Prestar atención a el color de background que se usa de relleno al crear los "cards".
+Faltan la vista de perfil para los personajes en escritorio
