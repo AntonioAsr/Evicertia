@@ -30,3 +30,9 @@ Miércoles 29, 17:40
 Raquel:
 - Todo me parecen buenas ideas. Eres libre de añadir los elementos que creas necesarios, el diseño que pasamos es solo un cachito para ver como lo replicas pero el resto de pantallas que quieras añadir las puedes hacer como quieras.
 Lo de forzar que tenga que poner el móvil en horizontal en el móvil también me parece una buena solución para que sea más fácil de adaptar.
+
+### Desiciones técnicas, librerías, etc...
+
+He optado por [Vite](https://vitejs.dev/) como herramienta para el scaffold ya que es algo mas rápido que [CRA](https://create-react-app.dev/)
+
+Para interactuar con la API rest he optado por usar [Redux Toolkit](https://redux-toolkit.js.org) ya ofrece [RTK](https://redux-toolkit.js.org/rtk-query/overview) query ya que elemina la necesidad de escribir mucha lógica para obtener datos y manager la cache.
