@@ -7,7 +7,7 @@ Se utilizará como guía durante el desarrollo y se irán añadiendo o eliminand
 ### Lista de requisitos
 
 - [x] Acceso a figma
-- [X] Servidor / API REST: "Up and Running"
+- [x] Servidor / API REST: "Up and Running"
 - [] Modal choose player
 - [] Borde alrededor de la tarjeta del personaje seleccionado.
 - [] Para continuar deberás pulsar el botón “Save changes”.
@@ -18,6 +18,14 @@ Se utilizará como guía durante el desarrollo y se irán añadiendo o eliminand
 
 ### Preguntas Evicertia
 
+Miercoles 29, 17:30
+Antonio:
 - ¿Podríamos añadir una pantalla inicial de carga donde aparezca un CTA con la palabra "jugar"? Sería un buen lugar para poner futuras ampliaciones como diferentes modo de juego, ajustes (teclas, idiomas, etc), además de darnos un puto de partida con el enroutameniento de la aplicación (Router).
 
 - ¿Es buena idea forzar la vista móbil para forzar la visualizacion del mapa de juego en modo horizontal (landscape) para proporcionar una mejor experiencia de usuario?
+
+
+Miércoles 29, 17:40
+Raquel:
+- Todo me parecen buenas ideas. Eres libre de añadir los elementos que creas necesarios, el diseño que pasamos es solo un cachito para ver como lo replicas pero el resto de pantallas que quieras añadir las puedes hacer como quieras.
+Lo de forzar que tenga que poner el móvil en horizontal en el móvil también me parece una buena solución para que sea más fácil de adaptar.
