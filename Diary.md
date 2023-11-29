@@ -6,8 +6,8 @@ Se utilizará como guía durante el desarrollo y se irán añadiendo o eliminand
 
 ### Lista de requisitos
 
-- [x] Accso a figma
-- [] Servidor / API REST: "Up and Running"
+- [x] Acceso a figma
+- [X] Servidor / API REST: "Up and Running"
 - [] Modal choose player
 - [] Borde alrededor de la tarjeta del personaje seleccionado.
 - [] Para continuar deberás pulsar el botón “Save changes”.
