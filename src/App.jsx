@@ -1,23 +1,26 @@
-import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import { useStartGameMutation } from './api/walkGame'
+import { 
+  useStartGameMutation,
+  useAddPlayerMutation,
+  useMovePlayerMutation,
+  useGetPlayerInfoQuery,
+  useDeletePlayerMutation,
+  useGetGameQuery,
+} from './api/walkGame'
 function App() {
 
-  const [count, setCount] = useState(0)
+  
   const [start] = useStartGameMutation();
+  const [addPlayer] = useAddPlayerMutation();
+  const [movePlayer] = useMovePlayerMutation();
+  const { data: playerInfo } = useGetPlayerInfoQuery()
+  const { data: gameInfo } = useGetGameQuery()
+  const [deletePlayer] = useDeletePlayerMutation();
+  console.log(playerInfo)
+  console.log(gameInfo)
   
-  useEffect(() => {
-    start();
-  }, []);
-  
-  const startGame = async () => {
-      await start().then((data) => {
-        console.log(data)
-    })
-  }
-
   return (
     <>
       <div>
@@ -29,18 +32,13 @@ function App() {
         </a>
       </div>
       <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
-      <button onClick={startGame}></button>
+      <button onClick={start}>start game</button>
+      <button onClick={addPlayer}>add player</button>
+      <button onClick={movePlayer}>move player</button>
+      <button onClick={deletePlayer}>delete player</button>
     </>
   )
 }

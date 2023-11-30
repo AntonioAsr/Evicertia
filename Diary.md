@@ -8,7 +8,7 @@ Se utilizará como guía durante el desarrollo y se irán añadiendo o eliminand
 
 - [x] Acceso a figma
 - [x] Servidor / API REST: "Up and Running"
-- [] Test Restful API
+- [x] Test Restful API
 - [] Import all assets
 - [] Modal choose player
 - [] Borde alrededor de la tarjeta del personaje seleccionado.
