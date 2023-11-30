@@ -1,10 +1,22 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-
+import { useStartGameMutation } from './api/walkGame'
 function App() {
+
   const [count, setCount] = useState(0)
+  const [start] = useStartGameMutation();
+  
+  useEffect(() => {
+    start();
+  }, []);
+  
+  const startGame = async () => {
+      await start().then((data) => {
+        console.log(data)
+    })
+  }
 
   return (
     <>
@@ -28,6 +40,7 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
+      <button onClick={startGame}></button>
     </>
   )
 }
