@@ -44,3 +44,24 @@ Para interactuar con la API rest he optado por usar [Redux Toolkit](https://redu
 Las imágenes de los jugadores son las mismas para desktop como para móvil, no es necesario crear diferentes assets para diferentes tamaños de pantalla.
 Prestar atención a el color de background que se usa de relleno al crear los "cards".
 Faltan la vista de perfil para los personajes en escritorio
+
+Nice To have: Degradado con el color de fondo de jugado hasta final de la tarjeta.
+
+Jueves 30, 9:00
+He tenido que eliminar la redireccion https en el servidor, así como añaidr localhost:3000 a lista de entornos que pueden interactuar con la api, ya que estaba obteniendo CORS errors.
+Probablemente no sea la solución idionea pero me permite continuar con el desarrollo.
+```csharp
+Program.cs:
+
+// app.UseHttpsRedirection();
+
+app.UseAuthorization();
+
+app.MapControllers();
+app.UseCors(policy => policy
+    .WithOrigins("http://localhost:3000")
+    .AllowAnyMethod()
+    .AllowAnyHeader()
+);
+
+app.Run();
