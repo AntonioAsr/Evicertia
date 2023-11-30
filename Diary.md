@@ -9,7 +9,11 @@ Se utilizará como guía durante el desarrollo y se irán añadiendo o eliminand
 - [x] Acceso a figma
 - [x] Servidor / API REST: "Up and Running"
 - [x] Test Restful API
-- [] Import all assets
+- [] Refactor a bit walkgame.js to accept parameters
+- [] UI clean up
+- [] Import all assets / create some news
+- [] React Routing
+- [] Splash Screen
 - [] Modal choose player
 - [] Borde alrededor de la tarjeta del personaje seleccionado.
 - [] Para continuar deberás pulsar el botón “Save changes”.
