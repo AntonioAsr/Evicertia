@@ -1,5 +1,3 @@
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import { 
   useStartGameMutation,
@@ -9,9 +7,10 @@ import {
   useDeletePlayerMutation,
   useGetGameQuery,
 } from './api/walkGame'
-function App() {
+import "bootstrap/dist/css/bootstrap.min.css";
+import NavigationBar from './components/NavigationBar'
 
-  
+function App() {  
   const [start] = useStartGameMutation();
   const [addPlayer] = useAddPlayerMutation();
   const [movePlayer] = useMovePlayerMutation();
@@ -23,18 +22,8 @@ function App() {
   
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank" rel="noreferrer">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <NavigationBar></NavigationBar>
+      <div></div>
       <button onClick={start}>start game</button>
       <button onClick={addPlayer}>add player</button>
       <button onClick={movePlayer}>move player</button>
