@@ -9,16 +9,20 @@ Se utilizará como guía durante el desarrollo y se irán añadiendo o eliminand
 - [x] Acceso a figma
 - [x] Servidor / API REST: "Up and Running"
 - [x] Test Restful API
-- [] Refactor a bit walkgame.js to accept parameters
+- [] Refactor walkgame.js to accept parameters
 - [] UI clean up
 - [] Import all assets / create some news
 - [] React Routing
+- [] UI components
+- [] Unit test
+- [] Integration tests (if time allows it)
 - [] Splash Screen
 - [] Modal choose player
 - [] Borde alrededor de la tarjeta del personaje seleccionado.
 - [] Para continuar deberás pulsar el botón “Save changes”.
 - [] Tarjeta del personaje (card-character). Aparecerá al hacer clic encima del personaje en el tablero y te indicará el nombre y los movimientos que ha hecho.
 - [] Mobile friendly (Puede disminuir el tamaño del mapa acorde al de la pantalla)
+- UI
 - [] Revisión del diario antes de entrega
 
 
