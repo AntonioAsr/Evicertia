@@ -67,7 +67,7 @@ app.UseAuthorization();
 
 app.MapControllers();
 app.UseCors(policy => policy
-    .WithOrigins("http://localhost:3000")
+    .WithOrigins("http://127.0.0.1:3000")
     .AllowAnyMethod()
     .AllowAnyHeader()
 );
