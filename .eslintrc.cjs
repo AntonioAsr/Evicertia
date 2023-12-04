@@ -12,6 +12,15 @@ module.exports = {
     'plugin:react/jsx-runtime',
     'plugin:react-hooks/recommended',
   ],
+  overrides: [
+    {
+      files: ['**/*.test.js', '**/*.test.jsx'],
+      rules: {
+        'no-unused-expressions': 'off',
+      },
+
+    }
+  ],
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
   settings: { react: { version: '18.2' } },
