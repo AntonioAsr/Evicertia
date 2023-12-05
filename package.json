@@ -11,7 +11,9 @@
     "test": "vitest"
   },
   "dependencies": {
+    "@ebay/nice-modal-react": "^1.2.13",
     "@reduxjs/toolkit": "^1.9.7",
+    "antd": "^5.12.1",
     "bootstrap": "^5.3.2",
     "eslint-config-airbnb": "^19.0.4",
     "prop-types": "^15.8.1",

@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useAddPlayerMutation, useMovePlayerMutation } from '../api/walkGame';
 import {useGameContext} from '../enginge/gameContext';
-import {Container, Row} from 'react-bootstrap';
+import {Container, Row, Col} from 'react-bootstrap';
 import terrain from '../assets/terrain/terran_1.png'
 import player1 from '../assets/players/player_1.png'
 
 function WalkerGame() {
   const context = useGameContext();
   const [addPlayer] = useAddPlayerMutation();
-  const [movePlayer] = useMovePlayerMutation();
-  // const context = useGameContext();
-  const gameSize = context.gameSize;
+
   const GridGame = ({ Rows, Columns }) => {
     const [grid, setGrid] = useState(() =>
       Array.from({ length: Rows }, () => Array(Columns).fill(null))
@@ -19,7 +17,6 @@ function WalkerGame() {
     console.log({context})
     const [playerPosition, setPlayerPosition] = useState(context.initialPlayerPosition);
     const currentPath = window.location.pathname;
-    const canAddPlayer = currentPath.includes('walkerGame');
 
     const addPlayerToGrid = async () => {
       addPlayer().unwrap().then((data)=>{
@@ -55,7 +52,7 @@ const displayGrid = () => {
 
   const cellSize = `${calculateCellSize()}vw`;  
   return (
-    <Row
+    <Container
       style={{
         display: 'grid',
         gridTemplateColumns: `repeat(${context.gridSize}, ${cellSize})`,
@@ -87,14 +84,14 @@ const displayGrid = () => {
           </div>
         ))
       ))}
-    </Row>
+    </Container>
   );
 };
 
     return (
-      <div>
-          {displayGrid()}
 
+      <Col xs={12}>
+        {displayGrid()}
         <button onClick={() => changePosition(playerPosition.Row - 1, playerPosition.Column)}>
           Move Up
         </button>
@@ -108,7 +105,8 @@ const displayGrid = () => {
           Move Right
         </button>
         <button onClick={addPlayerToGrid}>add player</button>
-      </div>
+      </Col>
+
     );
   };
 

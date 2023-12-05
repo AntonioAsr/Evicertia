@@ -1,0 +1,57 @@
+.playerImage {
+  border: 4px solid rgba(0, 0, 0, 0);
+  margin-bottom: 16px;
+  border-radius: 6.18px;
+}
+
+.playerImage:hover {
+  border: 4px solid #7749F8;
+  border-radius: 6.18px;
+}
+
+/* Desktop styles */
+@media (min-width: 768px) {
+
+  .playerImage{
+    width: 187px;
+  }
+
+  .ant-modal-content {
+    width: 623px !important;
+    
+  }
+
+  .modal-footer-container {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .image-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+  }
+
+}
+
+/* Mobile styles */
+@media (max-width: 767px) {
+  .playerImage{
+    width: 100%;
+  }
+  .ant-modal-content {
+    width: 300px;
+  }
+
+  .modal-footer-container {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .image-container {
+    display: block;
+  }
+  .ant-modal .ant-modal-content{
+    margin: auto;
+  }
+}

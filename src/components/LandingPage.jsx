@@ -12,6 +12,9 @@ import {
   useMovePlayerMutation,
 } from '../api/walkGame';
 import {useGameContext} from '../enginge/gameContext';
+import ChoosePlayerModal from '../components/ChoosePlayerModal';
+import NiceModal from '@ebay/nice-modal-react';
+
 
 function LandingPage(){
   // api
@@ -47,7 +50,16 @@ function LandingPage(){
 
         <button onClick={deletePlayer}>delete player</button>
         <button onClick={startGame} >create game</button>
-        <LinkButton to="walkerGame" label="PLAY" onClick={()=>{startGame}} disabled={false}></LinkButton>
+        <button onClick={() => NiceModal.show(ChoosePlayerModal)}>
+          Open MyNiceModal
+        </button>        
+      <LinkButton 
+        to="walkerGame"
+        label="PLAY"
+        onClick={()=>{startGame}} disabled={false}
+        style={{backgroundColor: '#7749F8'}}
+        >
+        </LinkButton>
       </>
   )
 }
