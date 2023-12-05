@@ -26,7 +26,4 @@ Launch the app:
 
 There are minimal changes done to the  backend repo. You can check those out in the diary.
 
-La rama principal de desarrollo es develop:
-```
-~$git checkout develop
-```
+You can use nvm to match node version in .nvmrc file
