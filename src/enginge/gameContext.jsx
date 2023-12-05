@@ -1,13 +1,11 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { useAddPlayerMutation, useMovePlayerMutation } from '../api/walkGame';
 
 const GameContext = createContext();
 
 const GameContextProvider = ({ children }) => {
-  const [addPlayer] = useAddPlayerMutation();
   const [selectedImage, setSelectedImage] = useState('');
-
-  const [gameSize, setGameSize] = useState(10)
+  // dinamic grid size
+  const [gameSize, setGameSize] = useState(10);
   const [gameData, setGameData] = useState({
     gridSize: gameSize,
     gameSize: {
