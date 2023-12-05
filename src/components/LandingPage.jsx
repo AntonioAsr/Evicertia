@@ -1,4 +1,3 @@
-import { useState } from "react";
 import NavigationBar from "./NavigationBar";
 import landingPageVideo from '../assets/Desktop/landingPageVideo.mp4';
 import LinkButton from "../components/LinkButton";
@@ -6,7 +5,7 @@ import {useStartGameMutation, useAddPlayerMutation} from '../api/walkGame';
 import {useGameContext} from '../enginge/gameContext';
 import ChoosePlayerModal from '../components/ChoosePlayerModal';
 import NiceModal from '@ebay/nice-modal-react';
-
+import Button from "./Button";
 
 function LandingPage(){
   // api
@@ -43,9 +42,15 @@ function LandingPage(){
         <video style={{position: 'fixed', top: '0px', zIndex: '-1', width: '100%'}} preload="auto" autoPlay muted="muted">
           <source src={landingPageVideo} type="video/mp4" />
         </video>
-        <button onClick={() => NiceModal.show(ChoosePlayerModal)}>
-          Choose player
-        </button>
+      <Button
+        label="Choose player"
+        onClick={() => NiceModal.show(ChoosePlayerModal)}         
+        style={{
+          backgroundColor: '#7749F8',
+          display: 'block',
+          margin: 'auto'
+        }} >
+      </Button>
       <LinkButton 
         to="walkerGame"
         label="PLAY"

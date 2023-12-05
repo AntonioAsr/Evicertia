@@ -40,7 +40,9 @@ const displayGrid = () => {
 
   const cellSize = `${calculateCellSize()}vw`;  
   return (
-    <Container
+    <Container>
+    <Row style={{marginTop: '150px'}}>
+    <Col xs={12} lg={6}
       style={{
         display: 'grid',
         gridTemplateColumns: `repeat(${context.gridSize}, ${cellSize})`,
@@ -72,11 +74,12 @@ const displayGrid = () => {
           </div>
         ))
       ))}
-      <Row xs={12}>
+      </Col>
+      <Col xs={12} lg={6} xsOffset={1}>
         <PlayerPath playerPosition={playerPosition} />
-      </Row>
-    </Container>
-    
+      </Col>
+    </Row>
+  </Container>
   );
 };
 
