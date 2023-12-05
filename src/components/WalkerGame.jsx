@@ -1,31 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import { useAddPlayerMutation, useMovePlayerMutation } from '../api/walkGame';
 import {useGameContext} from '../enginge/gameContext';
 import {Container, Row, Col} from 'react-bootstrap';
 import terrain from '../assets/terrain/terran_1.png'
 import player1 from '../assets/players/player_1.png'
+import Button from './Button';
 
 function WalkerGame() {
   const context = useGameContext();
-  const [addPlayer] = useAddPlayerMutation();
-
+  
   const GridGame = ({ Rows, Columns }) => {
     const [grid, setGrid] = useState(() =>
-      Array.from({ length: Rows }, () => Array(Columns).fill(null))
+    Array.from({ length: Rows }, () => Array(Columns).fill(null))
     );
-
-    console.log({context})
+    
     const [playerPosition, setPlayerPosition] = useState(context.initialPlayerPosition);
-    const currentPath = window.location.pathname;
-
-    const addPlayerToGrid = async () => {
-      addPlayer().unwrap().then((data)=>{
-        const {position} = data;
-        console.log('pos',position)
-        context.setInitialPlayerPosition({ Row: position.row, Column: position.column });
-      })
-    };
-
 
     const changePosition = (newRow, newColumn) => {
       const canMove = newRow >= 0 && newRow < Rows && newColumn >= 0 && newColumn < Columns;
@@ -42,7 +30,6 @@ function WalkerGame() {
         setPlayerPosition({ Row: newRow, Column: newColumn });
       }
     };
-
 const displayGrid = () => {
   const calculateCellSize = () => {
     const baseCellSize = 0.3;
@@ -89,22 +76,14 @@ const displayGrid = () => {
 };
 
     return (
-
       <Col xs={12}>
         {displayGrid()}
-        <button onClick={() => changePosition(playerPosition.Row - 1, playerPosition.Column)}>
-          Move Up
-        </button>
-        <button onClick={() => changePosition(playerPosition.Row + 1, playerPosition.Column)}>
-          Move Down
-        </button>
-        <button onClick={() => changePosition(playerPosition.Row, playerPosition.Column - 1)}>
-          Move Left
-        </button>
-        <button onClick={() => changePosition(playerPosition.Row, playerPosition.Column + 1)}>
-          Move Right
-        </button>
-        <button onClick={addPlayerToGrid}>add player</button>
+          <>
+            <Button label='Move Up' onClick={() => changePosition(playerPosition.Row - 1, playerPosition.Column)}/>
+            <Button label='Move Down' onClick={() => changePosition(playerPosition.Row + 1, playerPosition.Column)} />
+            <Button label='Move Left' onClick={() => changePosition(playerPosition.Row, playerPosition.Column - 1)} />
+            <Button label='Move Right' onClick={() => changePosition(playerPosition.Row, playerPosition.Column + 1)} />
+          </>
       </Col>
 
     );

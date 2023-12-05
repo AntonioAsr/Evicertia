@@ -2,15 +2,7 @@ import { useState } from "react";
 import NavigationBar from "./NavigationBar";
 import landingPageVideo from '../assets/Desktop/landingPageVideo.mp4';
 import LinkButton from "../components/LinkButton";
-import WalkerGameInstance from "./WalkerGame";
-import {
-  useStartGameMutation,
-  useAddPlayerMutation,
-  useGetPlayerInfoQuery,
-  useGetGameQuery,
-  useDeletePlayerMutation,
-  useMovePlayerMutation,
-} from '../api/walkGame';
+import {useStartGameMutation} from '../api/walkGame';
 import {useGameContext} from '../enginge/gameContext';
 import ChoosePlayerModal from '../components/ChoosePlayerModal';
 import NiceModal from '@ebay/nice-modal-react';
@@ -19,24 +11,32 @@ import NiceModal from '@ebay/nice-modal-react';
 function LandingPage(){
   // api
   const [start] = useStartGameMutation();
-  const [addPlayer] = useAddPlayerMutation();
-  const [movePlayer] = useMovePlayerMutation();
-  const [deletePlayer] = useDeletePlayerMutation();
-  const { data: playerInfo } = useGetPlayerInfoQuery();
-  const { data: gameInfo } = useGetGameQuery();
 
   // context
   const context = useGameContext();
 
   // ui
   const gameSize = context.gameSize;
+
+  const addPlayerToGrid = async () => {
+    addPlayer().unwrap().then((data)=>{
+      const {position} = data;
+      context.setInitialPlayerPosition({ Row: position.row, Column: position.column });
+      console.log('here')
+    })
+
+  };
+
   const startGame = async() => {
     // TODO: Nice to have: Handle redirect in a better way, 
     // if api fails we get a broken UI.
     await start(gameSize).then((res)=>{
       console.log('starting game',res)
     })
+    addPlayerToGrid();
   }
+
+
 
   return(
       <>
