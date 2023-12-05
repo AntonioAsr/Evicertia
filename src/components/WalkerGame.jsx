@@ -4,6 +4,7 @@ import {Container, Row, Col} from 'react-bootstrap';
 import terrain from '../assets/terrain/terran_1.png'
 import player1 from '../assets/players/player_1.png'
 import Button from './Button';
+import PlayerPath from './PlayerPath';
 
 function WalkerGame() {
   const context = useGameContext();
@@ -26,7 +27,7 @@ function WalkerGame() {
           prevGrid[newRow][newColumn] = 'Player';
           return [...prevGrid];
         });
-
+    
         setPlayerPosition({ Row: newRow, Column: newColumn });
       }
     };
@@ -71,7 +72,11 @@ const displayGrid = () => {
           </div>
         ))
       ))}
+      <Row xs={12}>
+        <PlayerPath playerPosition={playerPosition} />
+      </Row>
     </Container>
+    
   );
 };
 
@@ -89,7 +94,12 @@ const displayGrid = () => {
     );
   };
 
-  return <GridGame Rows={context.gridSize} Columns={context.gridSize} />;
+  return (
+    <>
+      <GridGame Rows={context.gridSize} Columns={context.gridSize} />
+
+    </>
+  );
 }
 
 const WalkerGameInstance = () => {

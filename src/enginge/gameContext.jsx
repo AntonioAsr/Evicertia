@@ -31,7 +31,7 @@ const GameContextProvider = ({ children }) => {
     setSelectedImage(image);
     setGameData((prevGameData) => ({
       ...prevGameData,
-      player: image, // Update the player property in gameData
+      player: image,
     }));
   };
 

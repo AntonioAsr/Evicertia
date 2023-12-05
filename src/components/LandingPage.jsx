@@ -2,7 +2,7 @@ import { useState } from "react";
 import NavigationBar from "./NavigationBar";
 import landingPageVideo from '../assets/Desktop/landingPageVideo.mp4';
 import LinkButton from "../components/LinkButton";
-import {useStartGameMutation} from '../api/walkGame';
+import {useStartGameMutation, useAddPlayerMutation} from '../api/walkGame';
 import {useGameContext} from '../enginge/gameContext';
 import ChoosePlayerModal from '../components/ChoosePlayerModal';
 import NiceModal from '@ebay/nice-modal-react';
@@ -11,7 +11,7 @@ import NiceModal from '@ebay/nice-modal-react';
 function LandingPage(){
   // api
   const [start] = useStartGameMutation();
-
+  const [addPlayer] = useAddPlayerMutation();
   // context
   const context = useGameContext();
 
@@ -22,7 +22,6 @@ function LandingPage(){
     addPlayer().unwrap().then((data)=>{
       const {position} = data;
       context.setInitialPlayerPosition({ Row: position.row, Column: position.column });
-      console.log('here')
     })
 
   };
