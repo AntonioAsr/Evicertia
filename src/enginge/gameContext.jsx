@@ -5,6 +5,7 @@ const GameContext = createContext();
 
 const GameContextProvider = ({ children }) => {
   const [addPlayer] = useAddPlayerMutation();
+  const [selectedImage, setSelectedImage] = useState('');
 
   const [gameSize, setGameSize] = useState(10)
   const [gameData, setGameData] = useState({
@@ -16,25 +17,26 @@ const GameContextProvider = ({ children }) => {
     players: [],
     // default position until response from add player
     initialPlayerPosition: { Row: 0, Column: 0 },
-  })
+    player: selectedImage, // Initial value for player
+  });
 
-  const addPlayerToGrid = async () => {
-    addPlayer().unwrap().then((data)=>{
-      const {position} = data;
-      console.log('pos',position)
-      setInitialPlayerPosition({ Row: position.row, Column: position.column });
-    })
-  };
-
-   const setInitialPlayerPosition = (newPosition) => {
+  const setInitialPlayerPosition = (newPosition) => {
     setGameData((prevGameData) => ({
       ...prevGameData,
       initialPlayerPosition: newPosition,
     }));
-  };  
+  };
+
+  const selectImage = (image) => {
+    setSelectedImage(image);
+    setGameData((prevGameData) => ({
+      ...prevGameData,
+      player: image, // Update the player property in gameData
+    }));
+  };
 
   return (
-    <GameContext.Provider value={{...gameData, setInitialPlayerPosition}}>
+    <GameContext.Provider value={{ ...gameData, setInitialPlayerPosition, selectImage }}>
       {children}
     </GameContext.Provider>
   );

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-function Button({ label, variant, to, disabled, style }) {
+function Button({ label, variant, to, disabled, style, onClick }) {
   const variantClass = variant ? `btn-${variant}` : 'btn-primary';
 
   if (to) {
@@ -15,7 +15,7 @@ function Button({ label, variant, to, disabled, style }) {
           opacity: 0.5,
           textDecoration: 'none',
           position: 'fixed',
-          bottom: '20px',
+          bottom: '50px',
           left: '50%',
           transform: 'translateX(-50%)',
           display: 'flex',
@@ -29,13 +29,14 @@ function Button({ label, variant, to, disabled, style }) {
     ) : (
       <Link 
           to={to} 
-          className={`btn ${variantClass}`} 
+          className={`btn ${variantClass}`}
+          onClick={onClick}
           style={{ 
             height: '50px',
             width: '75px',
             textDecoration: 'none',
             position: 'fixed',
-            bottom: '20px',
+            bottom: '50px',
             left: '50%',
             transform: 'translateX(-50%)',
             display: 'flex',

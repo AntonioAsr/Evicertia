@@ -27,8 +27,6 @@ function LandingPage(){
 
   // context
   const context = useGameContext();
-  console.log({context})
-  const canPlay = true;
 
   // ui
   const gameSize = context.gameSize;
@@ -46,20 +44,22 @@ function LandingPage(){
         <video style={{position: 'fixed', top: '0px', zIndex: '-1', width: '100%'}} preload="auto" autoPlay muted="muted">
           <source src={landingPageVideo} type="video/mp4" />
         </video>
-        <button onClick={addPlayer}>add player</button>
-
-        <button onClick={deletePlayer}>delete player</button>
-        <button onClick={startGame} >create game</button>
         <button onClick={() => NiceModal.show(ChoosePlayerModal)}>
-          Open MyNiceModal
-        </button>        
+          Choose player
+        </button>
       <LinkButton 
         to="walkerGame"
         label="PLAY"
-        onClick={()=>{startGame}} disabled={false}
+        onClick={startGame} disabled={!context.player}
         style={{backgroundColor: '#7749F8'}}
         >
         </LinkButton>
+        {!context.player && (
+          <span style={{ position: 'fixed', bottom: '3%', left: '50%', transform: 'translate(-50%, 50%)', display: 'flex', justifyContent: 'center' }}>
+            Choose Player in order to play
+          </span>
+        )
+        }
       </>
   )
 }

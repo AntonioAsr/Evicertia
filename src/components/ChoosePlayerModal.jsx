@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import NiceModal, { useModal } from '@ebay/nice-modal-react';
 import { Modal } from 'antd';
 import './ChoosePlayerModal.css';
+import { useGameContext } from '../enginge/gameContext';
 import Button from './Button';
 import player1 from '../assets/players/player_1.png';
 import player2 from '../assets/players/player_2.png';
@@ -15,6 +16,7 @@ const ChoosePlayerModal = NiceModal.create(() => {
   const images = [player1, player2, player3, player4, player5, player6];
 
   const modal = useModal();
+  const context = useGameContext();
 
   const ModalTitle = () => {
     return (
@@ -24,13 +26,21 @@ const ChoosePlayerModal = NiceModal.create(() => {
     );
   };
 
+  const handleClose = () => {
+    modal.hide();
+  }
   const ModalFooter = () => {
     return (
       <div className="modal-footer-container">
-        <Button style={{backgroundColor: '#7749F8'}} label='Save Changes' />
+        <Button style={{backgroundColor: '#7749F8'}} label='Save Changes' onClick={handleClose} />
       </div>
     );
   };
+
+  const selectImage = (image) => {
+    context.selectImage(image)
+    console.log(context)
+  }
 
   return (
     <Modal
@@ -43,7 +53,9 @@ const ChoosePlayerModal = NiceModal.create(() => {
     >
       <div className="image-container">
       {images.map((image, index) => (
-        <img className="playerImage" key={index} src={image} alt={`Player ${index + 1}`} />
+        <span onClick={()=>{selectImage(image)}}>
+          <img style={{border: context.player === image ? '1px solid black' : ''}} className="playerImage" key={index} src={image} alt={`Player ${index + 1}`} />
+        </span>
       ))}
     </div>
     </Modal>
