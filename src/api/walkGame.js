@@ -1,24 +1,19 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-// start game
-const gameSize = {
-  width: 30,
-  height: 30,
-};
 
 // create new player
 const player = {
-  username: 'TheBestPlayer',
+  username: 'TheBestPlayer1',
 };
 
 // move player
 const playerPosition = [
   {
-    operationType: 0,
-    path: '/Position',
-    op: 'replace',
-    from: 'string',
-    value: { Row: 1, Column: 1 },
-  },
+    "operationType": 0,
+    "path": "/Position",
+    "op": "replace",
+    "from": "string",
+    "value": { "Row": 1, "Column": 1 }
+  }
 ];
 
 export const api = createApi({
@@ -28,7 +23,7 @@ export const api = createApi({
   }),
   endpoints: (builder) => ({
     startGame: builder.mutation({
-      query: () => ({
+      query: (gameSize) => ({
         url: '/game',
         method: 'POST',
         body: gameSize,

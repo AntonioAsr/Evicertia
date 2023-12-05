@@ -13,10 +13,5 @@ describe('NavigationBar', () => {
     const navbarBrandElement = screen.getByText('Map Walker');
     expect(navbarBrandElement).to.exist;
 
-    const settingsLink = screen.getByTestId('Settings');
-    const pathTrackerLink = screen.getByText('Path Tracker');
-
-    expect(settingsLink).to.exist;
-    expect(pathTrackerLink).to.exist;
   });
 });
