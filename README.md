@@ -23,3 +23,10 @@ Launch the app:
 ```
 ~$ npm run dev
 ```
+
+There are minimal changes done to the  backend repo. You can check those out in the diary.
+
+La rama principal de desarrollo es develop:
+```
+~$git checkout develop
+```

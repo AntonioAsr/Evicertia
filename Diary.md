@@ -14,17 +14,18 @@ Se utilizará como guía durante el desarrollo y se irán añadiendo o eliminand
 - [] Import all assets / create some news
 - [x] React Routing
 - [x] UI components
-- [] Unit test
+- [] Unit test (time)
 - [] Integration tests (if time allows it)
 - [x] Splash Screen
 - [x] Modal choose player, (to complete)
 - [x] Borde alrededor de la tarjeta del personaje seleccionado.
-- [] Para continuar deberás pulsar el botón “Save changes”.
+- [x] Para continuar deberás pulsar el botón “Save changes”.
 - [] Tarjeta del personaje (card-character). Aparecerá al hacer clic encima del personaje en el tablero y te indicará el nombre y los movimientos que ha hecho.
+    (time)
 - [x] Mobile friendly (Puede disminuir el tamaño del mapa acorde al de la pantalla) => El grid escala, pero podría estár manejado mejor
 - UI
-- [] Fuentes (están en figma)
-- [] Revisión del diario antes de entrega
+- [] Fuentes (están en figma) (time)
+- [x] Revisión del diario antes de entrega
 
 
 ### Preguntas Evicertia
@@ -74,3 +75,7 @@ app.UseCors(policy => policy
 );
 
 app.Run();
+
+## Revision diario
+
+Gracias por esta oportunindad.
