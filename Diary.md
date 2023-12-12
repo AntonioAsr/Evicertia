@@ -10,26 +10,27 @@ Se utilizará como guía durante el desarrollo y se irán añadiendo o eliminand
 - [x] Servidor / API REST: "Up and Running"
 - [x] Test Restful API
 - [x] Refactor walkgame.js to accept parameters
-- [] UI clean up
-- [] Import all assets / create some news
 - [x] React Routing
 - [x] UI components
-- [] Unit test (time)
 - [] Integration tests (if time allows it)
 - [x] Splash Screen
 - [x] Modal choose player, (to complete)
 - [x] Borde alrededor de la tarjeta del personaje seleccionado.
 - [x] Para continuar deberás pulsar el botón “Save changes”.
-- [] Tarjeta del personaje (card-character). Aparecerá al hacer clic encima del personaje en el tablero y te indicará el nombre y los movimientos que ha hecho.
-    (time)
 - [x] Mobile friendly (Puede disminuir el tamaño del mapa acorde al de la pantalla) => El grid escala, pero podría estár manejado mejor
-- UI
-- [] Fuentes (están en figma) (time)
-- [x] Revisión del diario antes de entrega
 - [x] Mostrar posicion inicial del jugador
-- [] Api - move player
-- [] Typescript
+- [x] Api - move player
+- [x] Revisión del diario antes de entrega
+- [] Tarjeta del personaje (card-character). Aparecerá al hacer clic encima del personaje en el tablero y te indicará el nombre y los movimientos que ha hecho.
+- [] Import all assets / create some news
+    (time)
+- [] Fuentes (están en figma) (time)
+- [] UI clean up
+- [] Improve coloring when moving player (eg. current postion on blue, path on primary color)
+- [] Responsiveness is bad, improve it
 - [] Theming
+- [] Unit test (time)
+- [] Typescript
 
 ### Preguntas Evicertia
 
@@ -66,16 +67,26 @@ Probablemente no sea la solución idionea pero me permite continuar con el desar
 ```csharp
 Program.cs:
 
-// app.UseHttpsRedirection();
+// not sure if I was getting CORS errors because of a chrome extension, just in case added some extra options to CORS
 
+
+var app = builder.Build();
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment()){
+    app.UseSwagger();
+    app.UseSwaggerUI();
+    app.UseCors(policy => policy
+        .WithOrigins("http://127.0.0.1:3000")
+        .AllowAnyMethod()
+        .WithMethods("PATCH", "OPTIONS")
+        .AllowAnyHeader()
+    );
+}
+
+app.useRouting();
 app.UseAuthorization();
 
 app.MapControllers();
-app.UseCors(policy => policy
-    .WithOrigins("http://127.0.0.1:3000")
-    .AllowAnyMethod()
-    .AllowAnyHeader()
-);
 
 app.Run();
 
