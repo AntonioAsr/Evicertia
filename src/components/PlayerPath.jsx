@@ -11,15 +11,18 @@ const PlayerPath = ({ playerPosition }) => {
 
   return (
     <>
-    <h3>Player Path:</h3>
-    <div style={{display: 'flex', flexFlow: 'row'}}>      
-      {
-        allPositions.map((position, index) => (
-          <span style={{display: 'inline-flex'}} key={index}>
-            {`${String.fromCharCode(97 + position.Column)}${position.Row + 1}`}{'-'}
-          </span>
-      ))}
-      </div>
+    <div style={{display: 'flex'}}>
+      <h3 style={{color: '#ffffff', padding: '20px 20px 20px 20px'}}>Player Path:</h3>
+    </div>
+      <div style={{display: 'flex', padding: '0px 20px 20px 20px', color: '#ffffff', flexFlow: 'row', height: '141px'}}>
+        Movimientos:
+        {
+          allPositions.map((position, index) => (
+            <span style={{display: 'inline-flex', color: '#ffffff'}} key={index}>
+              {`${String.fromCharCode(97 + position.Column)}${position.Row + 1}`}{'-'}
+            </span>
+        ))}
+        </div>
     </>
   );
 };

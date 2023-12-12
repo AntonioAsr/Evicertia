@@ -6,6 +6,8 @@ import player1 from '../assets/players/player_1.png'
 import Button from './Button';
 import PlayerPath from './PlayerPath';
 import { useMovePlayerMutation } from '../api/walkGame';
+import CardCharacterModal from './CardCharacterModal';
+import NiceModal from '@ebay/nice-modal-react';
 
 function WalkerGame() {
   const context = useGameContext();
@@ -51,6 +53,10 @@ function WalkerGame() {
       })
     };
 
+    const showCardCharacterModal = () => {
+      NiceModal.show(CardCharacterModal, {playerPosition});
+    }
+
 const displayGrid = () => {
   const calculateCellSize = () => {
     const baseCellSize = 0.3;
@@ -72,6 +78,7 @@ const displayGrid = () => {
       {grid.map((Row, RowIndex) => (
         Row.map((cell, colIndex) => (
           <div
+            onClick={showCardCharacterModal}
             key={`${RowIndex}-${colIndex}`}
             style={{
               width: cellSize,
@@ -94,9 +101,6 @@ const displayGrid = () => {
         ))
       ))}
       </Col>
-      <Col xs={12} lg={6}>
-        <PlayerPath playerPosition={playerPosition} />
-      </Col>
     </Row>
   </Container>
   );
@@ -117,10 +121,7 @@ const displayGrid = () => {
   };
 
   return (
-    <>
       <GridGame Rows={context.gridSize} Columns={context.gridSize} />
-
-    </>
   );
 }
 
