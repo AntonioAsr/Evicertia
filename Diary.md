@@ -26,7 +26,7 @@ Se utilizará como guía durante el desarrollo y se irán añadiendo o eliminand
 - UI
 - [] Fuentes (están en figma) (time)
 - [x] Revisión del diario antes de entrega
-- [] Mostrar posicion inicial del jugador
+- [x] Mostrar posicion inicial del jugador
 - [] Api - move player
 - [] Typescript
 - [] Theming
