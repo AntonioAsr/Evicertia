@@ -8,13 +8,24 @@ import PlayerPath from './PlayerPath';
 
 function WalkerGame() {
   const context = useGameContext();
+  const [playerPosition, setPlayerPosition] = useState(context.initialPlayerPosition);
   
   const GridGame = ({ Rows, Columns }) => {
     const [grid, setGrid] = useState(() =>
     Array.from({ length: Rows }, () => Array(Columns).fill(null))
     );
     
-    const [playerPosition, setPlayerPosition] = useState(context.initialPlayerPosition);
+    useEffect(() => {
+      if(playerPosition){
+        console.log(playerPosition)
+        const {Row, Column} = playerPosition;
+        console.log(Row, Column)
+        setGrid((prevGrid) => {
+          prevGrid[Row][Column] = 'Player';
+          return [...prevGrid];
+        });
+      }
+    }, [])
 
     const changePosition = (newRow, newColumn) => {
       const canMove = newRow >= 0 && newRow < Rows && newColumn >= 0 && newColumn < Columns;
