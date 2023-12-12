@@ -13,7 +13,6 @@ const GameContextProvider = ({ children }) => {
       height: gameSize,
     },
     players: [],
-    // default position until response from add player
     initialPlayerPosition: { Row: 0, Column: 0 },
     player: selectedImage, // Initial value for player
   });
