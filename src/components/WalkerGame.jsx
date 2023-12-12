@@ -101,6 +101,9 @@ const displayGrid = () => {
         ))
       ))}
       </Col>
+      <Col xs={12} lg={6}>
+        <PlayerPath playerPosition={playerPosition} />
+      </Col>
     </Row>
   </Container>
   );
