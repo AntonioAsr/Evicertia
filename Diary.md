@@ -27,7 +27,9 @@ Se utilizará como guía durante el desarrollo y se irán añadiendo o eliminand
 - [] Missing text in the select player UI.
 - [] Import all assets / create some news
     (time)
+- [] Selected player, (display image of selected one)
 - [] Improve coloring when moving player (eg. current postion on blue, path on primary color)
+- [] Use full capabilities of api: game info, add another player etc.
 - [] UI clean up (components)
 - [] Theming
 - [] Unit test (time)
