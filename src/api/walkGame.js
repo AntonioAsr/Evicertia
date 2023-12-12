@@ -5,17 +5,6 @@ const player = {
   username: 'TheBestPlayer1',
 };
 
-// move player
-const playerPosition = [
-  {
-    "operationType": 0,
-    "path": "/Position",
-    "op": "replace",
-    "from": "string",
-    "value": { "Row": 1, "Column": 1 }
-  }
-];
-
 export const api = createApi({
   reducerPath: 'walkingMan',
   baseQuery: fetchBaseQuery({
@@ -37,8 +26,8 @@ export const api = createApi({
       }),
     }),
     movePlayer: builder.mutation({
-      query: () => ({
-        url: '/player/TheBestPlayer',
+      query: (playerPosition) => ({
+        url: '/player/TheBestPlayer1',
         method: 'PATCH',
         body: playerPosition,
       }),

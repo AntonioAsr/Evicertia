@@ -5,12 +5,15 @@ import terrain from '../assets/terrain/terran_1.png'
 import player1 from '../assets/players/player_1.png'
 import Button from './Button';
 import PlayerPath from './PlayerPath';
+import { useMovePlayerMutation } from '../api/walkGame';
 
 function WalkerGame() {
   const context = useGameContext();
   
   const GridGame = ({ Rows, Columns }) => {
     const [playerPosition, setPlayerPosition] = useState(context.initialPlayerPosition);
+    const [movePlayer] = useMovePlayerMutation();
+
     const [grid, setGrid] = useState(() =>
     Array.from({ length: Rows }, () => Array(Columns).fill(null))
     );
@@ -24,22 +27,30 @@ function WalkerGame() {
         });
       }
     }, [])
+    
 
-    const changePosition = (newRow, newColumn) => {
-      const canMove = newRow >= 0 && newRow < Rows && newColumn >= 0 && newColumn < Columns;
-
-      if (canMove) {
+    const changePosition = async(newRow, newColumn) => {
+      const newPlayerPosition = [
+        {
+          "operationType": 0,
+          "path": "/Position",
+          "op": "replace",
+          "from": "string",
+          "value": { "Row": newRow, "Column": newColumn }
+        }
+      ];
+      
+      movePlayer(newPlayerPosition).unwrap().then((response)=>{
+        if(response.position){
         setGrid((prevGrid) => {
-          // Clear the old position
-          // prevGrid[playerPosition.Row][playerPosition.Column] = null;
-          // Move player to the new position, replace with player name
           prevGrid[newRow][newColumn] = 'Player';
           return [...prevGrid];
         });
-    
         setPlayerPosition({ Row: newRow, Column: newColumn });
       }
+      })
     };
+
 const displayGrid = () => {
   const calculateCellSize = () => {
     const baseCellSize = 0.3;
@@ -57,7 +68,6 @@ const displayGrid = () => {
         gridTemplateColumns: `repeat(${context.gridSize}, ${cellSize})`,
         gridTemplateRows: `repeat(${context.gridSize}, ${cellSize})`,
       }}
-
     >
       {grid.map((Row, RowIndex) => (
         Row.map((cell, colIndex) => (
