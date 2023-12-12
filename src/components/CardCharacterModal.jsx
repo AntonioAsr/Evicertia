@@ -18,22 +18,27 @@ const CardCharacterModal = NiceModal.create(({playerPosition}) => {
   const modal = useModal();
   const context = useGameContext();
 
-  const ModalTitle = () => {
-    return (
-      <div style={{ display: 'flex', width: '100%', justifyContent: 'center' }}>
-        <span>Choose <b>your Player</b></span>
-      </div>
-    );
+  const modalStyles = {
+    header: {
+      borderRadius: 0,
+    },
+    body: {
+      background: '#343333',
+      borderTopRightRadius: 15,
+      borderTopLeftRadius: 15,
+    },
+    mask: {
+      backdropFilter: 'blur(10px)',
+    },
+    footer: {
+      borderTop: '1px solid #333',
+      margin: '0px',
+    },
+    content: {
+      borderRadius: '20px', // need this one so we dont see background white
+      padding: '0px',
+    },
   };
-
-  const handleClose = () => {
-    modal.hide();
-  }
-
-  const selectImage = (image) => {
-    context.selectImage(image)
-    console.log(context)
-  }
 
   return (
     <Modal
@@ -42,6 +47,8 @@ const CardCharacterModal = NiceModal.create(({playerPosition}) => {
       open={modal.visible}
       onCancel={() => modal.hide()}
       afterClose={() => modal.remove()}
+      styles={modalStyles}
+      closeIcon={<span style={{ color: '#ffffff' }}>x</span>}
       footer={<PlayerPath playerPosition={playerPosition} />
     }
     >
@@ -54,7 +61,6 @@ const CardCharacterModal = NiceModal.create(({playerPosition}) => {
         backgroundRepeat: 'no-repeat',
       }}
     >
-
     </div>
     </Modal>
   );

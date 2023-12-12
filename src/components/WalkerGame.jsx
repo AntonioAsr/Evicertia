@@ -66,7 +66,7 @@ const displayGrid = () => {
 
   const cellSize = `${calculateCellSize()}vw`;  
   return (
-    <Container>
+    <Container style={{backgroundColor: '#e3e3e3'}}>
     <Row style={{marginTop: '150px'}}>
     <Col xs={12} lg={6}
       style={{
