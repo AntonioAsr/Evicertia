@@ -22,12 +22,13 @@ Se utilizará como guía durante el desarrollo y se irán añadiendo o eliminand
 - [x] Api - move player
 - [x] Revisión del diario antes de entrega
 - [] Tarjeta del personaje (card-character). Aparecerá al hacer clic encima del personaje en el tablero y te indicará el nombre y los movimientos que ha hecho.
+- [] Responsiveness is bad, improve it
+- [] Fuentes (están en figma) (time)
+- [] Missing text in the select player UI.
 - [] Import all assets / create some news
     (time)
-- [] Fuentes (están en figma) (time)
-- [] UI clean up
 - [] Improve coloring when moving player (eg. current postion on blue, path on primary color)
-- [] Responsiveness is bad, improve it
+- [] UI clean up (components)
 - [] Theming
 - [] Unit test (time)
 - [] Typescript

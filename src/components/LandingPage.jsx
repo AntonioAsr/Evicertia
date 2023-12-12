@@ -28,12 +28,11 @@ function LandingPage(){
   const startGame = async() => {
     // TODO: Nice to have: Handle redirect in a better way, 
     // if api fails we get a broken UI.
-    await start(gameSize).then((res)=>{
-      console.log('starting game',res)
-    })
+    // new react router have some loaders, as well as RTK utilities in order to improve
+    // ux on this user interaction
+    await start(gameSize);
     addPlayerToGrid();
   }
-
 
 
   return(
