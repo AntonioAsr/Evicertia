@@ -53,8 +53,8 @@ const ChoosePlayerModal = NiceModal.create(() => {
     >
       <div className="image-container">
       {images.map((image, index) => (
-        <span onClick={()=>{selectImage(image)}}>
-          <img style={{border: context.player === image ? '1px solid black' : ''}} className="playerImage" key={index} src={image} alt={`Player ${index + 1}`} />
+        <span key={index} onClick={()=>{selectImage(image)}}>
+          <img style={{border: context.player === image ? '1px solid black' : ''}} className="playerImage" src={image} alt={`Player ${index + 1}`} />
         </span>
       ))}
     </div>
